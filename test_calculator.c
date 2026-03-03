@@ -106,25 +106,25 @@ void test_multiply_underflow(void) {
 
 //divide tests
 void test_divide_positive_numbers(void) {
-    TEST_ASSERT_EQUAL(3, divide(4, 2)); //Expect 4 / 2 = 2
+    TEST_ASSERT_EQUAL(2, divide(4, 2)); //Expect 4 / 2 = 2
 }
 
 void test_divide_positive_and_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(-3, divide(4, -2)); //Expect 4 / -2 = -2
-    TEST_ASSERT_EQUAL(-3, divide(-4, 2)); //Expect -4 / 2 = -2
+    TEST_ASSERT_EQUAL(-2, divide(4, -2)); //Expect 4 / -2 = -2
+    TEST_ASSERT_EQUAL(-2, divide(-4, 2)); //Expect -4 / 2 = -2
 }
 
 void test_divide_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(3, divide(-4, -2)); //Expect -4 / -2 = 2
+    TEST_ASSERT_EQUAL(2, divide(-4, -2)); //Expect -4 / -2 = 2
 }
 
 void test_divide_zero(void) {
-    TEST_ASSERT_EQUAL(1, divide(5, 0)); 
-    TEST_ASSERT_EQUAL(1, divide(0, 0)); //Return 0 in the case of divide by zer
+    TEST_ASSERT_EQUAL(0, divide(5, 0)); 
+    TEST_ASSERT_EQUAL(0, divide(0, 0)); //Return 0 in the case of divide by zer
 }
 
 void test_divide_overflow(void) {
-    TEST_ASSERT_EQUAL(INT_MAX, divide(INT_MIN, -2));
+    TEST_ASSERT_EQUAL(INT_MAX, divide(INT_MIN, -1));
 }
 
 //division shrinks magnitude so meaningful underflow is not possible
