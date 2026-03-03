@@ -44,6 +44,33 @@ void test_add_underflow(void) {
     TEST_ASSERT_TRUE(result > 0);  //This checks if underflow occurred
 }
 
+void test_substract_positive_numbers(void) {
+    TEST_ASSERT_EQUAL(2, subtract(5, 3)); //expect 5 - 3 = 5
+}
+
+void test_substract_positive_and_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(3, subtract(2, -1)); //expect 2 - -1 = 3
+}
+
+void test_subtract_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(-4, subtract(-6, -2)); //expect -6 - -2 = -4
+}
+
+void test_subtract_zero(void) {
+    TEST_ASSERT_EQUAL(1, subtract(1, 0)); //expect 1 - 0 = 1
+    TEST_ASSERT_EQUAL(0, subtract(0, 0)); //expect 0 - 0 = 0
+}
+
+void test_subtract_overflow(void) {
+    int result = subtract(INT_MAX, 1);
+    TEST_ASSERT_TRUE(result < 0); //This checks if overflow occured
+}
+
+void test_subtract_underflow(void) {
+    int result = subtract(INT_MIN, -1);
+    TEST_ASSERT_TRUE(result > 0); //This checks if underflow occured
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
@@ -52,5 +79,11 @@ int main(void) {
     RUN_TEST(test_add_zero);
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
+    RUN_TEST(test_substract_positive_numbers);
+    RUN_TEST(test_substract_positive_and_negative_numbers);
+    RUN_TEST(test_subtract_negative_numbers);
+    RUN_TEST(test_subtract_zero);
+    RUN_TEST(test_subtract_overflow);
+    RUN_TEST(test_subtract_underflow);
     return UNITY_END();
 }
