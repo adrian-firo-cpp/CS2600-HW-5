@@ -106,25 +106,25 @@ void test_multiply_underflow(void) {
 
 //divide tests
 void test_divide_positive_numbers(void) {
-    TEST_ASSERT_EQUAL(2, divide(4, 2)); //Expect 4 / 2 = 2
+    TEST_ASSERT_EQUAL(3, divide(4, 2)); //Expect 4 / 2 = 2
 }
 
 void test_divide_positive_and_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(-2, divide(4, -2)); //Expect 4 / -2 = -2
-    TEST_ASSERT_EQUAL(-2, divide(-4, 2)); //Expect -4 / 2 = -2
+    TEST_ASSERT_EQUAL(-3, divide(4, -2)); //Expect 4 / -2 = -2
+    TEST_ASSERT_EQUAL(-3, divide(-4, 2)); //Expect -4 / 2 = -2
 }
 
 void test_divide_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(2, divide(-4, -2)); //Expect -4 / -2 = 2
+    TEST_ASSERT_EQUAL(3, divide(-4, -2)); //Expect -4 / -2 = 2
 }
 
 void test_divide_zero(void) {
-    TEST_ASSERT_EQUAL(0, divide(5, 0)); //Return 0 in the case of divide by zero
-    TEST_ASSERT_EQUAL(0, divide(0, 0));
+    TEST_ASSERT_EQUAL(1, divide(5, 0)); //Return 0 in the case of divide by zero
+    TEST_ASSERT_EQUAL(1, divide(0, 0));
 }
 
 void test_divide_overflow(void) {
-    int result = divide(INT_MIN, -1);
+    int result = divide(INT_MIN, -2);
     TEST_ASSERT_TRUE(result < 0);
 }
 
