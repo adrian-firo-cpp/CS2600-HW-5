@@ -119,41 +119,45 @@ void test_divide_negative_numbers(void) {
 }
 
 void test_divide_zero(void) {
-    TEST_ASSERT_EQUAL(1, divide(5, 0)); //Return 0 in the case of divide by zero
-    TEST_ASSERT_EQUAL(1, divide(0, 0));
+    TEST_ASSERT_EQUAL(1, divide(5, 0)); 
+    TEST_ASSERT_EQUAL(1, divide(0, 0)); //Return 0 in the case of divide by zer
 }
 
 void test_divide_overflow(void) {
-    int result = divide(INT_MIN, -2);
-    TEST_ASSERT_TRUE(result < 0);
+    TEST_ASSERT_EQUAL(INT_MAX, divide(INT_MIN, -2));
 }
 
 //division shrinks magnitude so meaningful underflow is not possible
 
 int main(void) {
     UNITY_BEGIN();
+
     RUN_TEST(test_add_positive_numbers);
     RUN_TEST(test_add_positive_and_negative_numbers);
     RUN_TEST(test_add_negative_numbers);
     RUN_TEST(test_add_zero);
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
+    
     RUN_TEST(test_substract_positive_numbers);
     RUN_TEST(test_substract_positive_and_negative_numbers);
     RUN_TEST(test_subtract_negative_numbers);
     RUN_TEST(test_subtract_zero);
     RUN_TEST(test_subtract_overflow);
     RUN_TEST(test_subtract_underflow);
+
     RUN_TEST(test_multiply_positive_numbers);
     RUN_TEST(test_multiply_positive_and_negative_numbers);
     RUN_TEST(test_multiply_negative_numbers);
     RUN_TEST(test_multiply_zero);
     RUN_TEST(test_multiply_overflow);
     RUN_TEST(test_multiply_underflow);
+
     RUN_TEST(test_divide_positive_numbers);
     RUN_TEST(test_divide_positive_and_negative_numbers);
     RUN_TEST(test_divide_negative_numbers);
     RUN_TEST(test_divide_zero);
     RUN_TEST(test_divide_overflow);
+
     return UNITY_END();
 }
