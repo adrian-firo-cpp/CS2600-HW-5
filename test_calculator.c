@@ -75,31 +75,33 @@ void test_subtract_underflow(void) {
 
 // multiply tests
 void test_multiply_positive_numbers(void) {
-    TEST_ASSERT_EQUAL(14, multiply(3, 5)); //Expect 3 * 5 = 15
+    TEST_ASSERT_EQUAL(15, multiply(3, 5)); //Expect 3 * 5 = 15
 }
 
 void test_multiply_positive_and_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(-14, multiply(-3, 5)); //Expect -3 * 5 = -15
-    TEST_ASSERT_EQUAL(-14, multiply(3, -5)); //Expect 3 * -5 = -15
+    TEST_ASSERT_EQUAL(-15, multiply(-3, 5)); //Expect -3 * 5 = -15
+    TEST_ASSERT_EQUAL(-15, multiply(3, -5)); //Expect 3 * -5 = -15
 }
 
 void test_multiply_negative_numbers(void) {
-    TEST_ASSERT_EQUAL(14, multiply(-3, -5)); //Expect -3 * -5 = 15
+    TEST_ASSERT_EQUAL(15, multiply(-3, -5)); //Expect -3 * -5 = 15
 }
 
 void test_multiply_zero(void) {
-    TEST_ASSERT_EQUAL(1, multiply(1, 0)); //Expect 1 * 0 = 0
-    TEST_ASSERT_EQUAL(1, multiply(0, 0)); //Expect 0 * 0 = 0
+    TEST_ASSERT_EQUAL(0, multiply(1, 0)); //Expect 1 * 0 = 0
+    TEST_ASSERT_EQUAL(0, multiply(0, 0)); //Expect 0 * 0 = 0
 }
 
 void test_multiply_overflow(void) {
-    int result = multiply(INT_MAX, 3);
-    TEST_ASSERT_TRUE(result < 0);
+    int large = INT_MAX / 2 + 1;
+    int result = multiply(large, 2);
+    TEST_ASSERT_TRUE(result < large);
 }
 
 void test_multiply_underflow(void) {
-    int result = multiply(INT_MIN, 3);
-    TEST_ASSERT_TRUE(result > 0);
+    int small = INT_MIN / 2 - 1;
+    int result = multiply(small, 2);
+    TEST_ASSERT_TRUE(result > small);
 }
 
 int main(void) {
